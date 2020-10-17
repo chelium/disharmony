@@ -1,5 +1,5 @@
 {
-  "author": "Benji7425 <benji7425@pm.me> (http://benji7425.github.io/)",
+  "author": "Benjamin Higgins <mail@brhiggins.com>",
   "bugs": {
     "url": "https://github.com/benji7425/disharmony/issues"
   },
@@ -51,5 +51,5 @@
     "test": "node --stack-trace-limit=1 test-runner.js"
   },
   "types": "dist/index.d.ts",
-  "version": "2.0.6"
+  "version": "2.0.7"
 }
