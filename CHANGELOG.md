@@ -1,4 +1,8 @@
 # Changelog
+## v2.0.8
+### Removed
+- Dead links in help command
+
 ## v2.0.7
 ### Updated
 - Local database client from nedb-core to nedb, as nedb-core was causing some issues

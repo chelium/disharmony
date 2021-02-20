@@ -28,7 +28,7 @@ export default class DisharmonyClient<TMessage extends DisharmonyMessage = Disha
     }>;
     commands: Command[];
     stats: Stats;
-    readonly channels: Map<string, DjsChannel>;
+    get channels(): Map<string, DjsChannel>;
     login(token: string): Promise<void>;
     destroy(): Promise<void>;
     dispatchMessage(message: TMessage): void;

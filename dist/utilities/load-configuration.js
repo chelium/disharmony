@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.isDbLocal = exports.isConfigValid = void 0;
 // tslint:disable: no-console
 const Joi = require("@hapi/joi");
 const fs_1 = require("fs");

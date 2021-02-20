@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.PermissionLevel = void 0;
 var PermissionLevel;
 (function (PermissionLevel) {
     PermissionLevel[PermissionLevel["Anyone"] = 0] = "Anyone";

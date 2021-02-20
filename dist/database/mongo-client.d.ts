@@ -10,7 +10,7 @@ export default class MongoClient implements DbClient {
     private client;
     private db;
     isMongo: boolean;
-    readonly isReconnecting: boolean;
+    get isReconnecting(): boolean;
     updateOne(collectionName: string, query: any, update: any): Promise<void>;
     insertOne(collectionName: string, record: any): Promise<void>;
     findOne(collectionName: string, query: any): Promise<any>;

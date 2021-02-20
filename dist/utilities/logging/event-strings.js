@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.EventStrings = void 0;
 var EventStrings;
 (function (EventStrings) {
     EventStrings["DbConnectionLost"] = "[Core] DbConnectionLost";

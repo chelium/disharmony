@@ -15,7 +15,6 @@ function createHelpEmbed(client, me, member) {
         embed.addField(command.syntax.match(/^\s?[^\s]+/)[0], `${command.description}
             **Usage:** *@${me.nickname || me.username} ${command.syntax}*
             ${command.permissionLevel !== command_1.PermissionLevel.Anyone ? `***${command_1.PermissionLevel[command.permissionLevel]} only***` : ""}`);
-    embed.addField("__Need more help?__", "[Visit my website](https://benji7425.github.io) or [Join my Discord](https://discord.gg/SSkbwSJ)");
     return embed;
 }
 exports.default = new command_1.default(

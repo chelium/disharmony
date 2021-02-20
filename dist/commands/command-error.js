@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CommandErrorReason = exports.CommandError = void 0;
 const friendly_error_1 = require("../core/friendly-error");
 class CommandError extends friendly_error_1.FriendlyError {
     constructor(reason) {

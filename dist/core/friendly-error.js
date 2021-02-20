@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.FriendlyError = void 0;
 class FriendlyError extends Error {
     constructor(message, friendlyMessage = false) {
         super(message);

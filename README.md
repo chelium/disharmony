@@ -1,4 +1,4 @@
-[![Build status](https://badge.buildkite.com/04a92d949655ca5a2e0416ae8e9d90588947c431e42dd1c712.svg?branch=master)](https://buildkite.com/benjihiggins/disharmony)
+![Build status](https://github.com/bhigginsuk/disharmony/actions/workflows/validate.yml/badge.svg?branch=master)
 
 # Disharmony
 A Discord bot framework built on top of [discord.js](https://github.com/discordjs/discord.js) with command parsing and basic Mongo-like database integration

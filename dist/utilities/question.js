@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.QuestionRejectionReason = void 0;
 const __1 = require("..");
 const event_strings_1 = require("./logging/event-strings");
 class Question {

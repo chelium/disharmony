@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DocumentErrorReason = exports.DocumentError = void 0;
 const friendly_error_1 = require("../core/friendly-error");
 class DocumentError extends friendly_error_1.FriendlyError {
     constructor(reason) {

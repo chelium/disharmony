@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Question = exports.CommandRejection = exports.SubDocument = exports.loadConfig = exports.forkWorkerClient = exports.Logger = exports.PermissionLevel = exports.Command = exports.DisharmonyGuildMember = exports.DisharmonyGuild = exports.DisharmonyMessage = exports.DisharmonyClient = exports.LiteDisharmonyClient = void 0;
 const command_1 = require("./commands/command");
 exports.Command = command_1.default;
-exports.PermissionLevel = command_1.PermissionLevel;
+Object.defineProperty(exports, "PermissionLevel", { enumerable: true, get: function () { return command_1.PermissionLevel; } });
 const command_rejection_1 = require("./commands/command-rejection");
 exports.CommandRejection = command_rejection_1.default;
 const client_1 = require("./core/client");

@@ -11,8 +11,8 @@ export interface LiteClient extends DjsExtensionModel<DjsClient> {
 export default class LiteDisharmonyClient implements LiteClient {
     config: Config;
     djs: DjsClient;
-    readonly botId: string;
-    readonly dbClient: DbClient;
+    get botId(): string;
+    get dbClient(): DbClient;
     login(token: string): Promise<void>;
     destroy(): Promise<void>;
     private onDebug;

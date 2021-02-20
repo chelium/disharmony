@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CriticalError = void 0;
 const logger_1 = require("../utilities/logging/logger");
 const mongo_client_1 = require("./mongo-client");
 const nedb_client_1 = require("./nedb-client");

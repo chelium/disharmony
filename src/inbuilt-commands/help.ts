@@ -26,9 +26,6 @@ function createHelpEmbed(client: Client, me: DisharmonyGuildMember, member: Dish
             ${command.permissionLevel !== PermissionLevel.Anyone ? `***${PermissionLevel[command.permissionLevel]} only***` : ""}`,
         )
 
-    embed.addField("__Need more help?__",
-        "[Visit my website](https://benji7425.github.io) or [Join my Discord](https://discord.gg/SSkbwSJ)")
-
     return embed
 }
 

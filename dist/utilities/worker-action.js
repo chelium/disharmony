@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.invokeWorkerAction = void 0;
 const path_1 = require("path");
 const __1 = require("..");
 /** Base class representing a module which can be easily launched in a worker module.
