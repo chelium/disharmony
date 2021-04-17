@@ -36,17 +36,20 @@
   ],
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "disharmony",
+  "name": "@chelium/disharmony",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bhigginsuk/disharmony.git"
+    "url": "git+https://github.com/chelium/disharmony.git"
   },
   "scripts": {
-    "build": "./node_modules/.bin/tsc --project tsconfig.prod.json",
-    "build-test": "./node_modules/.bin/tsc --project tsconfig.json && npm test",
-    "lint": "./node_modules/.bin/tslint --project .",
+    "build": "tsc --project tsconfig.prod.json",
+    "build-test": "tsc --project tsconfig.json && npm test",
+    "lint": "tslint --project .",
     "test": "node --stack-trace-limit=1 test-runner.js"
   },
   "types": "dist/index.d.ts",
-  "version": "2.0.8"
+  "version": "2.0.8",
+  "bugs": {
+    "url": "https://github.com/chelium/disharmony/issues"
+  }
 }
