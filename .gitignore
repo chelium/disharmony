@@ -1,5 +1,5 @@
 .vscode/[!.]*.json
-dist
+dist/
 token*
 credentials.json
 nedb-data
