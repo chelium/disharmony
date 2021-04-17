@@ -40,7 +40,7 @@ export default class DisharmonyClient<
     public commands: Command[]
     public stats: Stats
 
-    public get channels(): Map<string, DjsChannel> { return this.djs.channels }
+    public get channels(): Map<string, DjsChannel> { return this.djs.channels.cache }
 
     public async login(token: string)
     {

@@ -1,4 +1,4 @@
-import { Attachment, TextChannel } from "discord.js"
+import { MessageAttachment, TextChannel } from "discord.js"
 import { createWriteStream, promises as fsPromises } from "fs"
 import { IncomingMessage } from "http"
 import { get as httpsGet } from "https"
@@ -42,20 +42,20 @@ export default class DataPortProcessor extends WorkerAction
     public async processDataPortForPendingEntry(pendingPort: PendingDataPort)
     {
         // Fetch data for this guild
-        const djsGuild = this.client.djs.guilds.get(pendingPort.guildId)
+        const djsGuild = this.client.djs.guilds.cache.get(pendingPort.guildId)
 
         if (!djsGuild)
             return
 
         const guild = new DisharmonyGuild(djsGuild)
-        const isMemberStillInGuild = guild.djs.members.has(pendingPort.memberId)
+        const isMemberStillInGuild = guild.djs.members.cache.has(pendingPort.memberId)
 
         if (!isMemberStillInGuild)
             return
 
         await guild.loadDocument()
 
-        const channel = guild.djs.channels.get(pendingPort.channelId) as TextChannel
+        const channel = guild.djs.channels.cache.get(pendingPort.channelId) as TextChannel
 
         // Process the import or export
         let filePath: string
@@ -150,7 +150,7 @@ export default class DataPortProcessor extends WorkerAction
         await fsPromises.writeFile(fileName, exportJson)
 
         // Send JSON file to member
-        const attachment = new Attachment(fileName, `${pendingPort.guildId}.json`)
+        const attachment = new MessageAttachment(fileName, `${pendingPort.guildId}.json`)
 
         try
         {
