@@ -14,7 +14,7 @@ export default async function handleMessage<TMessage extends DisharmonyMessage>(
         return
 
     // Ignore messages from self
-    if (djsMessage.member.id === djsMessage.member.guild.me.id)
+    if (djsMessage.member.id === djsMessage.member?.guild?.me?.id)
         return
 
     const message = new client.messageCtor(djsMessage)

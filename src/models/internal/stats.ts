@@ -5,7 +5,13 @@ export default class Stats
     public get guildCount() { return this.dClient.guilds.cache.size }
     public get userCount() { return this.dClient.users.cache.size }
     public get uptime() { return this.dClient.uptime }
-    public get uptimeStr() { return this.toHHMMSS(this.uptime) }
+    public get uptimeStr()
+    {
+        if (this.uptime) {
+            return this.toHHMMSS(this.uptime)
+        }
+        return "undefined" // TODO handle this better
+    }
 
     private toHHMMSS(ms: number)
     {

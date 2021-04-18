@@ -19,7 +19,11 @@ export default class DisharmonyMessage implements DjsExtensionModel<DjsMessage>
     constructor(
         public readonly djs: DjsMessage)
     {
-        this.guild = new DisharmonyGuild(this.djs.guild)
-        this.member = new DisharmonyGuildMember(this.djs.member)
+        if (this.djs.guild) {
+            this.guild = new DisharmonyGuild(this.djs.guild);
+        }
+        if (this.djs.member) {
+            this.member = new DisharmonyGuildMember(this.djs.member);
+        }
     }
 }

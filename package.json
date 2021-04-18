@@ -49,7 +49,7 @@
     "test": "node --stack-trace-limit=1 test-runner.js"
   },
   "types": "dist/index.d.ts",
-  "version": "2.0.8",
+  "version": "2.1.0",
   "bugs": {
     "url": "https://github.com/chelium/disharmony/issues"
   }

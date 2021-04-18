@@ -1,4 +1,6 @@
-import { Channel as DjsChannel, GuildMember as DjsGuildMember, Message as DjsMessage } from "discord.js"
+import {
+    Channel as DjsChannel, GuildMember as DjsGuildMember, Message as DjsMessage, Permissions, VoiceState,
+} from "discord.js"
 import { ISimpleEvent, SignalDispatcher, SimpleEventDispatcher } from "strongly-typed-events"
 import { DisharmonyGuild, Logger } from ".."
 import Command from "../commands/command"
@@ -48,7 +50,7 @@ export default class DisharmonyClient<
         this.intervalManager.setIntervalCallbacks()
 
         if (this.config.playingStatusString)
-            await this.djs.user.setPresence({ game: { name: this.config.playingStatusString } })
+            await this.djs.user?.setPresence({ activity: { name: this.config.playingStatusString } })
     }
 
     public async destroy()
@@ -62,19 +64,29 @@ export default class DisharmonyClient<
         this.onMessage.dispatch(message)
     }
 
-    private dispatchVoiceStateUpdateIfPermitted(oldDjsMember: DjsGuildMember, newDjsMember: DjsGuildMember)
+    private dispatchVoiceStateUpdateIfPermitted(oldVoiceState: VoiceState, newVoiceState: VoiceState)
     {
-        const voiceChannel = (newDjsMember.voiceChannel || oldDjsMember.voiceChannel)
+        const voiceChannel = (newVoiceState?.channel || oldVoiceState?.channel)
 
         // Sometimes this is undefined, no idea why
         if (!voiceChannel)
             return
 
-        const botPerms = voiceChannel.permissionsFor(voiceChannel.guild.me)
+        let botPerms: Readonly<Permissions> | null = null
+        if (voiceChannel?.guild?.me) {
+            botPerms = voiceChannel.permissionsFor(voiceChannel.guild.me)
+        }
 
         // Solve the issue where Discord sends voice state update events even when a voice channel is hidden from the bot
-        if (botPerms && botPerms.has("VIEW_CHANNEL"))
-            this.onVoiceStateUpdate.dispatch({ oldMember: new this.guildMemberCtor(oldDjsMember), newMember: new this.guildMemberCtor(newDjsMember) })
+        if (botPerms
+            && botPerms.has("VIEW_CHANNEL")
+            && oldVoiceState?.member
+            && newVoiceState?.member) {
+            this.onVoiceStateUpdate.dispatch({
+                oldMember: new this.guildMemberCtor(oldVoiceState.member),
+                newMember: new this.guildMemberCtor(newVoiceState.member),
+            })
+        }
     }
 
     constructor(

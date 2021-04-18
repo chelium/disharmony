@@ -15,7 +15,7 @@ export default class DisharmonyGuild extends Document implements DjsExtensionMod
 
     public botHasPermissions(permissions: number): boolean
     {
-        return (this.djs.me.permissions.missing(permissions) as PermissionResolvable[]).length === 0
+        return (this.djs?.me?.permissions?.missing(permissions) as PermissionResolvable[]).length === 0
     }
 
     public getExportJson()
@@ -27,6 +27,8 @@ export default class DisharmonyGuild extends Document implements DjsExtensionMod
         public readonly djs: DjsGuild)
     {
         super(djs.id, "Guild")
-        this.me = new DisharmonyGuildMember(djs.me)
+        if (djs.me) {
+            this.me = new DisharmonyGuildMember(djs.me)
+        }
     }
 }
